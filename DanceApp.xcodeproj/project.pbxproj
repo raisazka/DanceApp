@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88386191248F1D21002B8832 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88386190248F1D21002B8832 /* HomeVC.swift */; };
+		88386193248F1F39002B8832 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88386192248F1F39002B8832 /* SearchVC.swift */; };
+		88386195248F200B002B8832 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88386194248F200B002B8832 /* Song.swift */; };
+		88386197248F2112002B8832 /* SongDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88386196248F2112002B8832 /* SongDetailVC.swift */; };
 		88BAF0F1248A463E009D2320 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAF0F0248A463E009D2320 /* AppDelegate.swift */; };
 		88BAF0F3248A463E009D2320 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAF0F2248A463E009D2320 /* SceneDelegate.swift */; };
-		88BAF0F5248A463E009D2320 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAF0F4248A463E009D2320 /* ViewController.swift */; };
+		88BAF0F5248A463E009D2320 /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAF0F4248A463E009D2320 /* OnboardVC.swift */; };
 		88BAF0F8248A463E009D2320 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAF0F6248A463E009D2320 /* Main.storyboard */; };
 		88BAF0FA248A463F009D2320 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BAF0F9248A463F009D2320 /* Assets.xcassets */; };
 		88BAF0FD248A463F009D2320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAF0FB248A463F009D2320 /* LaunchScreen.storyboard */; };
+		88E5897E248F3912001CE784 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E5897D248F3912001CE784 /* Home.storyboard */; };
+		88E58981248F3947001CE784 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E5897F248F3947001CE784 /* Search.storyboard */; };
+		88E58983248F3972001CE784 /* SongDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E58982248F3972001CE784 /* SongDetail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88386190248F1D21002B8832 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		88386192248F1F39002B8832 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		88386194248F200B002B8832 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		88386196248F2112002B8832 /* SongDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailVC.swift; sourceTree = "<group>"; };
 		88BAF0ED248A463E009D2320 /* DanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BAF0F0248A463E009D2320 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BAF0F2248A463E009D2320 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88BAF0F4248A463E009D2320 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88BAF0F4248A463E009D2320 /* OnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
 		88BAF0F7248A463E009D2320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88BAF0F9248A463F009D2320 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88BAF0FC248A463F009D2320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88BAF0FE248A463F009D2320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88E5897D248F3912001CE784 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		88E58980248F3947001CE784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = DanceApp/Base.lproj/Search.storyboard; sourceTree = SOURCE_ROOT; };
+		88E58982248F3972001CE784 /* SongDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SongDetail.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8838618D248F1CA1002B8832 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88E58982248F3972001CE784 /* SongDetail.storyboard */,
+				88E5897F248F3947001CE784 /* Search.storyboard */,
+				88E5897D248F3912001CE784 /* Home.storyboard */,
+				88BAF0F6248A463E009D2320 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8838618E248F1CAD002B8832 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88386190248F1D21002B8832 /* HomeVC.swift */,
+				88386192248F1F39002B8832 /* SearchVC.swift */,
+				88BAF0F4248A463E009D2320 /* OnboardVC.swift */,
+				88386196248F2112002B8832 /* SongDetailVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8838618F248F1CB4002B8832 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88386194248F200B002B8832 /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		88BAF0E4248A463E009D2320 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +100,11 @@
 		88BAF0EF248A463E009D2320 /* DanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				8838618F248F1CB4002B8832 /* Model */,
+				8838618E248F1CAD002B8832 /* Controller */,
+				8838618D248F1CA1002B8832 /* View */,
 				88BAF0F0248A463E009D2320 /* AppDelegate.swift */,
 				88BAF0F2248A463E009D2320 /* SceneDelegate.swift */,
-				88BAF0F4248A463E009D2320 /* ViewController.swift */,
-				88BAF0F6248A463E009D2320 /* Main.storyboard */,
 				88BAF0F9248A463F009D2320 /* Assets.xcassets */,
 				88BAF0FB248A463F009D2320 /* LaunchScreen.storyboard */,
 				88BAF0FE248A463F009D2320 /* Info.plist */,
@@ -128,6 +173,9 @@
 				88BAF0FD248A463F009D2320 /* LaunchScreen.storyboard in Resources */,
 				88BAF0FA248A463F009D2320 /* Assets.xcassets in Resources */,
 				88BAF0F8248A463E009D2320 /* Main.storyboard in Resources */,
+				88E5897E248F3912001CE784 /* Home.storyboard in Resources */,
+				88E58983248F3972001CE784 /* SongDetail.storyboard in Resources */,
+				88E58981248F3947001CE784 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88BAF0F5248A463E009D2320 /* ViewController.swift in Sources */,
+				88386195248F200B002B8832 /* Song.swift in Sources */,
+				88BAF0F5248A463E009D2320 /* OnboardVC.swift in Sources */,
+				88386193248F1F39002B8832 /* SearchVC.swift in Sources */,
+				88386191248F1D21002B8832 /* HomeVC.swift in Sources */,
+				88386197248F2112002B8832 /* SongDetailVC.swift in Sources */,
 				88BAF0F1248A463E009D2320 /* AppDelegate.swift in Sources */,
 				88BAF0F3248A463E009D2320 /* SceneDelegate.swift in Sources */,
 			);
@@ -161,6 +213,14 @@
 				88BAF0FC248A463F009D2320 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		88E5897F248F3947001CE784 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E58980248F3947001CE784 /* Base */,
+			);
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
