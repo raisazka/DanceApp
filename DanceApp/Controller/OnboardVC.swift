@@ -8,9 +8,7 @@
 
 import UIKit
 
-class OnboardVC: UIViewController, UIScrollViewDelegate {
-    
-    
+class OnboardVC: UIViewController {
     
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var PageControl: UIPageControl!
@@ -83,32 +81,12 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
             backButton.setTitle("", for: .normal)
         }
     }
+
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.panGestureRecognizer.translation(in: scrollView.superview).x > 0 {
-            pageCount -= 1
-            if pageCount <= 0 {
-                backButton.setTitle(" ", for: .normal)
-            }
-        } else {
-            pageCount += 1
-            backButton.setTitle("Back", for: .normal)
-        }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        setIndicatorForCurrentPage()
-        
-    }
     
     func setIndicatorForCurrentPage() {
         let page = (ScrollView?.contentOffset.x)!/scrollWidth
         PageControl?.currentPage = Int(page)
-        
     }
     
     func scrollToPage(page: Int, animated: Bool) {
@@ -126,11 +104,9 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
             pageCount += 1
             self.scrollToPage(page: pageCount, animated: true)
             PageControl.currentPage = pageCount
-            
             if pageCount == 2 {
                 nextButton.setTitle("Get Started", for: .normal)
-            }
-            else {
+            } else {
                 nextButton.setTitle("Next", for: .normal)
             }
         }
@@ -153,9 +129,28 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
             return
         }
         
-        
         if pageCount == 0 {
             backButton.setTitle("", for: .normal)
         }
     }
+}
+
+extension OnboardVC :  UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.panGestureRecognizer.translation(in: scrollView.superview).x > 0 {
+            pageCount -= 1
+            if pageCount <= 0 {
+                backButton.setTitle(" ", for: .normal)
+            }
+        } else {
+            pageCount += 1
+            backButton.setTitle("Back", for: .normal)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        setIndicatorForCurrentPage()
+    }
+    
 }

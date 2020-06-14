@@ -13,6 +13,6 @@ struct Song {
     
     var name:String?
     var image: UIImage?
-    var duration: Int?
+    var artist: String?
         
 }

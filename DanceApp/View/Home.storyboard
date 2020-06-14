@@ -36,8 +36,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="413" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1ec-uS-dPW">
-                                                    <rect key="frame" x="-1" y="2" width="414" height="250"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1ec-uS-dPW">
+                                                    <rect key="frame" x="-1" y="-6" width="420" height="266"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -53,7 +53,7 @@
                                     <outlet property="delegate" destination="8jn-7N-2Ag" id="fPR-ou-4Ml"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-hp-CNH">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQc-hp-CNH">
                                 <rect key="frame" x="20" y="581" width="394" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,7 +104,7 @@
                                     <outlet property="delegate" destination="8jn-7N-2Ag" id="QVh-kV-bxz"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJ2-WR-pGi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJ2-WR-pGi">
                                 <rect key="frame" x="20" y="348" width="394" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -186,9 +186,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="j4u-pf-Kvn"/>
                     <connections>
-                        <outlet property="musicCover" destination="VJ2-WR-pGi" id="t0S-h7-IUe"/>
-                        <outlet property="musicCover2" destination="mQc-hp-CNH" id="2lZ-J1-dPN"/>
+                        <outlet property="featuredSongCollection" destination="VJ2-WR-pGi" id="t0S-h7-IUe"/>
                         <outlet property="pageView" destination="O5E-L2-Nqb" id="8h6-L7-K3f"/>
+                        <outlet property="popularSongCollection" destination="mQc-hp-CNH" id="2lZ-J1-dPN"/>
                         <outlet property="sliderCollectionView" destination="Iag-b1-xyn" id="AtJ-2a-W6l"/>
                         <segue destination="P1y-Pn-6Xs" kind="show" identifier="goToSongDetail" id="89Z-Ql-ay9"/>
                     </connections>
@@ -196,16 +196,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aef-9a-nq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4946.376811594203" y="126.5625"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="jTv-vz-BNb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="qt3-aL-dTP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="68I-JG-D9d"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uyi-Yq-wiD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5840" y="63"/>
         </scene>
         <!--SongDetail-->
         <scene sceneID="9Cd-yH-JG7">
