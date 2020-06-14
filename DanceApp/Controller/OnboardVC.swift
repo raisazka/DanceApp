@@ -10,8 +10,8 @@ import UIKit
 
 class OnboardVC: UIViewController, UIScrollViewDelegate {
     
-
-   
+    
+    
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var PageControl: UIPageControl!
     @IBOutlet weak var nextButton: UIButton!
@@ -25,53 +25,53 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
     private var lastContentOffset : CGFloat = 0
     
     var boardingImages = ["onboarding1","onboarding2","onboarding3"]
-       
+    
     override func viewDidLayoutSubviews() {
         scrollWidth = ScrollView.frame.size.width
         scrollHeight = ScrollView.frame.size.height
-       }
-
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            self.view.layoutIfNeeded()
-            UserDefaults.standard.bool(forKey: "FirstLaunch")
-                    
-            self.ScrollView.delegate = self
-            ScrollView.isPagingEnabled = true
-            ScrollView.showsHorizontalScrollIndicator = false
-            ScrollView.showsVerticalScrollIndicator = false
-                    
-            //create the slides and add them
-            var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-                    
-            for index in 0..<boardingImages.count {
-                frame.origin.x = scrollWidth * CGFloat(index)
-                frame.size = CGSize(width: scrollWidth, height: scrollHeight)
-                        
-                let slide = UIView(frame: frame)
-                        
-                //subviews
-                let imageView = UIImageView.init(image: UIImage.init(named: boardingImages[index]))
-                imageView.frame = ScrollView.frame
-                imageView.contentMode = .scaleAspectFit
-                imageView.center = CGPoint(x:scrollWidth/2,y:scrollHeight/2)
-                        
-                slide.addSubview(imageView)
-                ScrollView.addSubview(slide)
-            }
-                    
-            //set width of scrollview to accomodate all the slides
-            ScrollView.contentSize = CGSize(width: scrollWidth * CGFloat(boardingImages.count), height: scrollHeight)
-                    
-            //disable vertical scroll/bounce
-            self.ScrollView.contentSize.height = 1.0
-                    
-            //initial state
-            PageControl.numberOfPages = boardingImages.count
-            PageControl.currentPage = 0
-                    
+        self.view.layoutIfNeeded()
+        UserDefaults.standard.bool(forKey: "FirstLaunch")
+        
+        self.ScrollView.delegate = self
+        ScrollView.isPagingEnabled = true
+        ScrollView.showsHorizontalScrollIndicator = false
+        ScrollView.showsVerticalScrollIndicator = false
+        
+        //create the slides and add them
+        var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        
+        for index in 0..<boardingImages.count {
+            frame.origin.x = scrollWidth * CGFloat(index)
+            frame.size = CGSize(width: scrollWidth, height: scrollHeight)
+            
+            let slide = UIView(frame: frame)
+            
+            //subviews
+            let imageView = UIImageView.init(image: UIImage.init(named: boardingImages[index]))
+            imageView.frame = ScrollView.frame
+            imageView.contentMode = .scaleAspectFit
+            imageView.center = CGPoint(x:scrollWidth/2,y:scrollHeight/2)
+            
+            slide.addSubview(imageView)
+            ScrollView.addSubview(slide)
         }
-                
+        
+        //set width of scrollview to accomodate all the slides
+        ScrollView.contentSize = CGSize(width: scrollWidth * CGFloat(boardingImages.count), height: scrollHeight)
+        
+        //disable vertical scroll/bounce
+        self.ScrollView.contentSize.height = 1.0
+        
+        //initial state
+        PageControl.numberOfPages = boardingImages.count
+        PageControl.currentPage = 0
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "First Launch") == true {
             DispatchQueue.main.async {
@@ -80,45 +80,45 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
             }
         }
         if pageCount == 0 {
-                backButton.setTitle("", for: .normal)
+            backButton.setTitle("", for: .normal)
         }
     }
-            
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-               
+        
     }
-            
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.panGestureRecognizer.translation(in: scrollView.superview).x > 0 {
-                    pageCount -= 1
-        if pageCount <= 0 {
-            backButton.setTitle(" ", for: .normal)
+            pageCount -= 1
+            if pageCount <= 0 {
+                backButton.setTitle(" ", for: .normal)
             }
         } else {
             pageCount += 1
             backButton.setTitle("Back", for: .normal)
         }
     }
-                
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-                    setIndicatorForCurrentPage()
-                    
+        setIndicatorForCurrentPage()
+        
     }
-                
+    
     func setIndicatorForCurrentPage() {
         let page = (ScrollView?.contentOffset.x)!/scrollWidth
         PageControl?.currentPage = Int(page)
-                    
+        
     }
-                
+    
     func scrollToPage(page: Int, animated: Bool) {
         var frame: CGRect = self.ScrollView.frame
         frame.origin.x = frame.size.width * CGFloat(page)
         frame.origin.y = 0
         self.ScrollView.scrollRectToVisible(frame, animated: animated)
     }
-            
-            //scroll onboarding with buttons
+    
+    //scroll onboarding with buttons
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         backButton.setTitle("Back", for: .normal)
@@ -126,7 +126,7 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
             pageCount += 1
             self.scrollToPage(page: pageCount, animated: true)
             PageControl.currentPage = pageCount
-
+            
             if pageCount == 2 {
                 nextButton.setTitle("Get Started", for: .normal)
             }
@@ -143,19 +143,19 @@ class OnboardVC: UIViewController, UIScrollViewDelegate {
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         if pageCount > 0 {
-                   pageCount -= 1
-                   self.scrollToPage(page: pageCount, animated: true)
-                   PageControl.currentPage = pageCount
-                   nextButton.setTitle("Next", for: .normal)
-               }
-               else {
-                   PageControl.currentPage = pageCount
-                   return
-                       }
+            pageCount -= 1
+            self.scrollToPage(page: pageCount, animated: true)
+            PageControl.currentPage = pageCount
+            nextButton.setTitle("Next", for: .normal)
+        }
+        else {
+            PageControl.currentPage = pageCount
+            return
+        }
         
         
         if pageCount == 0 {
-                   backButton.setTitle("", for: .normal)
+            backButton.setTitle("", for: .normal)
         }
     }
 }
