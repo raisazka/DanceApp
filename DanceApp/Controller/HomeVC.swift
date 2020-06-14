@@ -11,6 +11,7 @@ import UIKit
 class HomeVC: UIViewController {
     
     @IBOutlet weak var sliderCollectionView: UICollectionView!
+    
     @IBOutlet weak var pageView: UIPageControl!
     
     @IBOutlet weak var featuredSongCollection: UICollectionView!

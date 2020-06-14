@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class DanceController: UIViewController, ARSCNViewDelegate {
+class DanceVC: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -23,6 +23,8 @@ class DanceController: UIViewController, ARSCNViewDelegate {
     let danceNode = SCNNode()
     
     var audioSource = SCNAudioSource()
+    
+    var song : Song?
     
     @IBOutlet weak var instructionLabel: UILabel!
     
@@ -40,7 +42,6 @@ class DanceController: UIViewController, ARSCNViewDelegate {
         let scene = SCNScene()
         
         sceneView.scene = scene
-        
     }
     
     
@@ -80,13 +81,15 @@ class DanceController: UIViewController, ARSCNViewDelegate {
     
     func setupAudio() {
         guard let audioSource = SCNAudioSource(fileNamed: "art.scnassets/songs/castle.mp3") else {
-           print("Nilll")
+           print("Nil")
            return
         }
-        audioSource.volume = 1
+        audioSource.volume = 50
         audioSource.isPositional = true
+        audioSource.shouldStream = false
         audioSource.load()
-        danceNode.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        let songPlayer = SCNAudioPlayer(source: audioSource)
+        danceNode.addAudioPlayer(songPlayer)
     }
     
     @IBAction func btnStartDance(_ sender: Any) {
@@ -99,7 +102,6 @@ class DanceController: UIViewController, ARSCNViewDelegate {
             stopAnimation(key: "dancing")
             btnStartDancing.setTitle("Start Dance", for: .normal)
             btnStartDancing.backgroundColor = UIColor.systemGreen
-//            danceNode.removeAllAudioPlayers()
         }
         idle = !idle
     }
@@ -112,8 +114,7 @@ class DanceController: UIViewController, ARSCNViewDelegate {
         }
         
         danceNode.position = position
-        danceNode.scale = SCNVector3(0.01, 0.01, 0.01)
-        
+        danceNode.scale = SCNVector3(0.005, 0.005, 0.005)
         sceneView.scene.rootNode.addChildNode(danceNode)
         
         loadAnimation(withKey: "dancing", sceneName: "art.scnassets/dance/sambaFixed", animationIdentifier: "sambaFixed-1")
@@ -180,6 +181,13 @@ class DanceController: UIViewController, ARSCNViewDelegate {
         let z = CGFloat(planeAnchor.center.z)
         planeNode.position = SCNVector3(x, y, z)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? SongDetailVC {
+            destVC.theSong = song
+        }
+    }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

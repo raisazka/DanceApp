@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dance Controller-->
+        <!--DanceVC-->
         <scene sceneID="62b-0z-2oG">
             <objects>
-                <viewController storyboardIdentifier="danceSB" id="Idu-xS-rwJ" customClass="DanceController" customModule="DanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="danceSB" id="Idu-xS-rwJ" customClass="DanceVC" customModule="Beat_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vlH-tO-MNh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -35,6 +35,18 @@
                                     <action selector="btnStartDance:" destination="Idu-xS-rwJ" eventType="touchUpInside" id="cyb-KR-acN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUj-Xz-wge">
+                                <rect key="frame" x="42" y="70.5" width="40" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.78039215689999997" green="0.17254901959999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button" backgroundImage="xmark.circle.fill" catalog="system"/>
+                                <state key="highlighted" backgroundImage="xmark.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <segue destination="S3Z-Ef-Jjk" kind="unwind" unwindAction="unwindToDetail:" id="8uH-va-NEx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -52,8 +64,20 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTE-v8-p97" sceneMemberID="firstResponder"/>
+                <exit id="S3Z-Ef-Jjk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </scene>
+        <!--SongDetail-->
+        <scene sceneID="zWk-4O-6rv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SongDetail" id="jgd-Hg-rWI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hC8-7n-7oX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1164" y="140"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

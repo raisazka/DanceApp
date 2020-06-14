@@ -10,7 +10,7 @@
         <!--Song DetailVC-->
         <scene sceneID="5yV-aI-Mlo">
             <objects>
-                <viewController storyboardIdentifier="DetailSB" modalPresentationStyle="fullScreen" id="IzU-SR-gJF" customClass="SongDetailVC" customModule="DanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailSB" modalPresentationStyle="fullScreen" id="IzU-SR-gJF" customClass="SongDetailVC" customModule="Beat_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e2t-98-gVO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Group"/>
                                 <connections>
-                                    <segue destination="YZH-c3-Pil" kind="show" id="4SB-Ox-IpK"/>
+                                    <segue destination="YZH-c3-Pil" kind="show" identifier="toDanceAR" id="4SB-Ox-IpK"/>
                                 </connections>
                             </button>
                         </subviews>

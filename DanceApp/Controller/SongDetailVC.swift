@@ -35,5 +35,13 @@ class SongDetailVC: UIViewController {
         sdTitle.text = theSong?.name
         sdArtist.text = theSong?.artist
     }
+    
+    @IBAction func unwindToDetail(_ sender: UIStoryboardSegue) {}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? DanceVC {
+            destVC.song = theSong
+        }
+    }
 
 }
