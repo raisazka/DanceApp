@@ -55,6 +55,9 @@
                                 <rect key="frame" x="69" y="681" width="277" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Group"/>
+                                <connections>
+                                    <segue destination="YZH-c3-Pil" kind="show" id="4SB-Ox-IpK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,6 +74,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dod-Ao-ioL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6094.202898550725" y="126.5625"/>
+        </scene>
+        <!--Dance-->
+        <scene sceneID="29o-FG-YRg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="danceSB" storyboardName="Dance" id="YZH-c3-Pil" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GtV-fZ-aG1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y42-kM-lHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7086" y="124"/>
         </scene>
     </scenes>
     <resources>

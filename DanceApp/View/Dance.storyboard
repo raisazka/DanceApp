@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Idu-xS-rwJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dance Controller-->
+        <scene sceneID="62b-0z-2oG">
+            <objects>
+                <viewController storyboardIdentifier="danceSB" id="Idu-xS-rwJ" customClass="DanceController" customModule="DanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vlH-tO-MNh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0us-no-CVa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                            </arscnView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get A Horizontal Plane Near You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHP-cT-fvj">
+                                <rect key="frame" x="42" y="722" width="331" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.51372549020000002" green="0.43921568630000002" blue="0.90588235289999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw0-Fz-Oek">
+                                <rect key="frame" x="116" y="722" width="182" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Start Dancing!"/>
+                                <connections>
+                                    <action selector="btnStartDance:" destination="Idu-xS-rwJ" eventType="touchUpInside" id="cyb-KR-acN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0us-no-CVa" firstAttribute="leading" secondItem="ovL-qM-Raj" secondAttribute="leading" id="8LU-yK-izg"/>
+                            <constraint firstItem="0us-no-CVa" firstAttribute="bottom" secondItem="ovL-qM-Raj" secondAttribute="bottom" id="AXL-U8-PsO"/>
+                            <constraint firstItem="0us-no-CVa" firstAttribute="top" secondItem="vlH-tO-MNh" secondAttribute="top" id="ROj-5B-wJ8"/>
+                            <constraint firstItem="0us-no-CVa" firstAttribute="trailing" secondItem="ovL-qM-Raj" secondAttribute="trailing" id="Ucd-bZ-Jws"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ovL-qM-Raj"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnStartDancing" destination="Bw0-Fz-Oek" id="vyW-Mm-Y0y"/>
+                        <outlet property="instructionLabel" destination="ZHP-cT-fvj" id="OfR-au-z8W"/>
+                        <outlet property="sceneView" destination="0us-no-CVa" id="Nz1-4V-YIh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTE-v8-p97" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
+        </scene>
+    </scenes>
+</document>
