@@ -32,7 +32,7 @@
 		8899138524965CE200DC6E6F /* Dance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dance.storyboard; sourceTree = "<group>"; };
 		8899138724965D7100DC6E6F /* DanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DanceController.swift; sourceTree = "<group>"; };
 		8899138924965DAE00DC6E6F /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		88BAF0ED248A463E009D2320 /* DanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88BAF0ED248A463E009D2320 /* Beat It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beat It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BAF0F0248A463E009D2320 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BAF0F2248A463E009D2320 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		88BAF0F4248A463E009D2320 /* OnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		88BAF0EE248A463E009D2320 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				88BAF0ED248A463E009D2320 /* DanceApp.app */,
+				88BAF0ED248A463E009D2320 /* Beat It.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			);
 			name = DanceApp;
 			productName = DanceApp;
-			productReference = 88BAF0ED248A463E009D2320 /* DanceApp.app */;
+			productReference = 88BAF0ED248A463E009D2320 /* Beat It.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -359,8 +359,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.DanceApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.BeatIt;
+				PRODUCT_NAME = "Beat It";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,8 +378,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.DanceApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.BeatIt;
+				PRODUCT_NAME = "Beat It";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
