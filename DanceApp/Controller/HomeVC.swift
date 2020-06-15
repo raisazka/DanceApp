@@ -20,7 +20,7 @@ class HomeVC: UIViewController {
     
     var imgArr = [ UIImage(named: "Highlight 1"), UIImage(named: "Highlight 2"), UIImage(named: "Highlight 3") ]
     
-    let featuredSongs = [Song(name: "Happy", image: UIImage(named: "Emo 0"), artist: "Loona"),
+    let featuredSongs = [Song(name: "Castle", image: UIImage(named: "Emo 0"), artist: "NCS"),
                 Song(name: "Number 1", image: UIImage(named: "Emo 1"), artist: "Loona"),
                 Song(name: "Butterfly", image: UIImage(named: "Emo 2"), artist: "Loona"),
                 Song(name: "Stylist", image: UIImage(named: "Emo 3"), artist: "Loona"),
@@ -54,7 +54,7 @@ class HomeVC: UIViewController {
         pageView.numberOfPages = imgArr.count
         pageView.currentPage = 0
         DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
     }
         
