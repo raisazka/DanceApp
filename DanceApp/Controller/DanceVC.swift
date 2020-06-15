@@ -9,13 +9,11 @@
 import UIKit
 import SceneKit
 import ARKit
+import ARVideoKit
+import Photos
 
 class DanceVC: UIViewController, ARSCNViewDelegate {
 
-    @IBOutlet var sceneView: ARSCNView!
-    
-    @IBOutlet weak var btnStartDancing: UIButton!
-    
     var animations = [String: CAAnimation]()
     
     var idle: Bool = true
@@ -26,7 +24,20 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
     
     var song : Song?
     
+    var recorder: RecordAR?
+    
+    var recording = true
+    
     @IBOutlet weak var instructionLabel: UILabel!
+    
+    @IBOutlet weak var btnRecord: UIButton!
+    
+    @IBOutlet var sceneView: ARSCNView!
+       
+    @IBOutlet weak var btnStartDancing: UIButton!
+    
+    let recordingQueue = DispatchQueue(label: "recordingThread", attributes: .concurrent)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +53,14 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
         let scene = SCNScene()
         
         sceneView.scene = scene
+        
+        recorder = RecordAR(ARSceneKit: sceneView)
+        
+        recorder?.contentMode = .aspectFill
+        
+        recorder?.inputViewOrientations = [.landscapeLeft, .landscapeRight, .portrait]
+        
+        recorder?.deleteCacheWhenExported = false
     }
     
     
@@ -55,6 +74,8 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
 
         // Run the view's session
         sceneView.session.run(configuration)
+        
+        recorder?.prepare(configuration)
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -77,11 +98,12 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
     func setupButton() {
         btnStartDancing.isHidden = false
         btnStartDancing.layer.cornerRadius = 15
+        btnRecord.isHidden = false
+        btnRecord.layer.cornerRadius = 15
     }
     
     func setupAudio() {
         guard let audioSource = SCNAudioSource(fileNamed: "art.scnassets/songs/castle.mp3") else {
-           print("Nil")
            return
         }
         audioSource.volume = 50
@@ -102,6 +124,7 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
             stopAnimation(key: "dancing")
             btnStartDancing.setTitle("Start Dance", for: .normal)
             btnStartDancing.backgroundColor = UIColor.systemGreen
+            danceNode.removeAllAudioPlayers()
         }
         idle = !idle
     }
@@ -192,8 +215,15 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Pause the view's session
         sceneView.session.pause()
+        
+        if recorder?.status == .recording {
+            recorder?.stopAndExport()
+        }
+        
+        recorder?.prepare(ARWorldTrackingConfiguration())
+        
+        recorder?.rest()
         
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -215,4 +245,58 @@ class DanceVC: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
     }
     
+    fileprivate func exportMessage(success: Bool, status: PHAuthorizationStatus) {
+        if success {
+            let alert = UIAlertController(title: "Video Saved", message: "Your Dance is successfully saved to your camera roll!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Awesome", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else if status == .denied || status == .notDetermined || status == .restricted {
+           let errorView = UIAlertController(title: "😅", message: "Please allow access to the photo library in order to save this media file.", preferredStyle: .alert)
+            let settingsBtn = UIAlertAction(title: "Open Settings", style: .cancel) { (_) -> Void in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        })
+                    } else {
+                        UIApplication.shared.openURL(URL(string:UIApplication.openSettingsURLString)!)
+                    }
+                }
+            }
+            errorView.addAction(UIAlertAction(title: "Later", style: UIAlertAction.Style.default, handler: {
+                (UIAlertAction)in
+            }))
+            errorView.addAction(settingsBtn)
+            self.present(errorView, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Exporting Failed", message: "There was an error while exporting your media file.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func recordAction(_ sender: UIButton) {
+        if recorder?.status == .readyToRecord {
+            btnRecord.setTitle("Stop", for: .normal)
+            btnRecord.setImage(UIImage(systemName: "stop.circle.fill"), for: .normal)
+            recordingQueue.async {
+                self.recorder?.record()
+            }
+        } else if recorder?.status == .recording {
+            btnRecord.setTitle("Start Recording", for: .normal)
+            btnRecord.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+            self.recorder?.stop() { path in
+                self.recorder?.export(video: path) { saved, status in
+                    DispatchQueue.main.async {
+                        self.exportMessage(success: saved, status: status)
+                    }
+                }
+            }
+        }
+    }
+    
 }
+
