@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </arscnView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get A Horizontal Plane Near You" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHP-cT-fvj">
-                                <rect key="frame" x="42" y="722" width="331" height="47"/>
+                                <rect key="frame" x="42" y="763" width="331" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.51372549020000002" green="0.43921568630000002" blue="0.90588235289999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw0-Fz-Oek">
-                                <rect key="frame" x="116" y="722" width="182" height="47"/>
+                                <rect key="frame" x="115" y="763" width="182" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Start Dancing!"/>
@@ -47,6 +47,16 @@
                                     <segue destination="S3Z-Ef-Jjk" kind="unwind" unwindAction="unwindToDetail:" id="8uH-va-NEx"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvj-Kp-pMx">
+                                <rect key="frame" x="115" y="691" width="182" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78039215689999997" green="0.17254901959999999" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Start Recording" image="play.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="recordAction:" destination="Idu-xS-rwJ" eventType="touchUpInside" id="bvk-BT-y6n"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -58,6 +68,7 @@
                         <viewLayoutGuide key="safeArea" id="ovL-qM-Raj"/>
                     </view>
                     <connections>
+                        <outlet property="btnRecord" destination="fvj-Kp-pMx" id="GdX-CZ-fVp"/>
                         <outlet property="btnStartDancing" destination="Bw0-Fz-Oek" id="vyW-Mm-Y0y"/>
                         <outlet property="instructionLabel" destination="ZHP-cT-fvj" id="OfR-au-z8W"/>
                         <outlet property="sceneView" destination="0us-no-CVa" id="Nz1-4V-YIh"/>
@@ -78,6 +89,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

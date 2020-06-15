@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,10 +22,14 @@
 		88BAF0FD248A463F009D2320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88BAF0FB248A463F009D2320 /* LaunchScreen.storyboard */; };
 		88E5897E248F3912001CE784 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E5897D248F3912001CE784 /* Home.storyboard */; };
 		88E58983248F3972001CE784 /* SongDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E58982248F3972001CE784 /* SongDetail.storyboard */; };
+		A0E278A121E26F19480B0464 /* Pods_DanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72772F0125AD498533F22814 /* Pods_DanceApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09FC4CD93D0C8CB6450D9A84 /* Pods-DanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanceApp.release.xcconfig"; path = "Target Support Files/Pods-DanceApp/Pods-DanceApp.release.xcconfig"; sourceTree = "<group>"; };
 		2DABACC72492606900F09836 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		40081D56F7E5675E2FEAB02E /* Pods-DanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanceApp.debug.xcconfig"; path = "Target Support Files/Pods-DanceApp/Pods-DanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		72772F0125AD498533F22814 /* Pods_DanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88386190248F1D21002B8832 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		88386194248F200B002B8832 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		88386196248F2112002B8832 /* SongDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailVC.swift; sourceTree = "<group>"; };
@@ -49,12 +53,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E278A121E26F19480B0464 /* Pods_DanceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		260F99CECE119CC559E4E46E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72772F0125AD498533F22814 /* Pods_DanceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47D23AA229475A23E7D1756D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				40081D56F7E5675E2FEAB02E /* Pods-DanceApp.debug.xcconfig */,
+				09FC4CD93D0C8CB6450D9A84 /* Pods-DanceApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8838618D248F1CA1002B8832 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +121,8 @@
 			children = (
 				88BAF0EF248A463E009D2320 /* DanceApp */,
 				88BAF0EE248A463E009D2320 /* Products */,
+				47D23AA229475A23E7D1756D /* Pods */,
+				260F99CECE119CC559E4E46E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88BAF101248A463F009D2320 /* Build configuration list for PBXNativeTarget "DanceApp" */;
 			buildPhases = (
+				7AB34E4074DE3A38D018DBDF /* [CP] Check Pods Manifest.lock */,
 				88BAF0E9248A463E009D2320 /* Sources */,
 				88BAF0EA248A463E009D2320 /* Frameworks */,
 				88BAF0EB248A463E009D2320 /* Resources */,
+				3FC82305E142128A04B84A7C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +221,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FC82305E142128A04B84A7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DanceApp/Pods-DanceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DanceApp/Pods-DanceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanceApp/Pods-DanceApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AB34E4074DE3A38D018DBDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DanceApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88BAF0E9248A463E009D2320 /* Sources */ = {
@@ -350,10 +418,11 @@
 		};
 		88BAF102248A463F009D2320 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40081D56F7E5675E2FEAB02E /* Pods-DanceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 928NUAMW33;
+				DEVELOPMENT_TEAM = RTU67JB7DC;
 				INFOPLIST_FILE = DanceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -369,10 +438,11 @@
 		};
 		88BAF103248A463F009D2320 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09FC4CD93D0C8CB6450D9A84 /* Pods-DanceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 928NUAMW33;
+				DEVELOPMENT_TEAM = RTU67JB7DC;
 				INFOPLIST_FILE = DanceApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
